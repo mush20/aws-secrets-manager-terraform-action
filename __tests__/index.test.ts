@@ -52,7 +52,7 @@ test('Get Secret Value Map, plain-text value', () => {
 test('Get Secret Value Map, JSON string value', () => {
   expect.assertions(1);
   return getSecretValueMap(secretsManagerClient, 'my_secret_2').then(secretValueMap => {
-    expect(secretValueMap).toMatchObject({'TF_VAR_foo': 'bar'});
+    expect(secretValueMap).toMatchObject({'TF_VAR_fooBar': 'baz'});
   });
 });
 

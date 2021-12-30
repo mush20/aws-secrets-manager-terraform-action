@@ -1,3 +1,5 @@
+import { snakeCase } from 'snake-case';
+
 /* Validate a possible object i.e., o = { "a": 2 } */
 export const isJSONObject = (o: Record<string, any>): boolean =>
   !!o && (typeof o === 'object') && !Array.isArray(o) &&
@@ -20,10 +22,9 @@ export const mapJSONObject = (data: Record<string, any>): Record<string, any> =>
     throw TypeError('Cannot flatten non JSON arguments');
   }
 
-  return Object.keys(data).reduce((prev, curr) => {
-    prev[getVariableName(curr)] = data[curr];
-    return prev;
-  }, {});
+  return Object.keys(data).reduce((prev, curr) =>
+    ({...prev, [getVariableName(curr)]: data[curr]})
+  , {});
 };
 
 export const filterBy = (items: Array<string>, filter: string): Array<string> => {
@@ -31,7 +32,8 @@ export const filterBy = (items: Array<string>, filter: string): Array<string> =>
 };
 
 export const getPOSIXString = (data: string): string => {
-  if (data.match(/^[0-9]/))
-    data = '_'.concat(data);
-  return data.replace(/[^a-zA-Z0-9_]/g, '_').toUpperCase();
+  let snake = snakeCase(data);
+  if (snake.match(/^[0-9]/))
+    snake = '_'.concat(snake);
+  return snake.replace(/[^a-zA-Z0-9_]/g, '_').toUpperCase();
 };

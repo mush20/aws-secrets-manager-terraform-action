@@ -13,7 +13,7 @@ const mockSecrets = {
     ARN: 'arn:aws:mock-secretsmanager:mock-region:mock-account-id:secret:my_secret_2-XXXXXX',
     VersionId: 'mock-version-id',
     Name: 'my_secret_2',
-    SecretString: '{"foo" : "bar"}',
+    SecretString: '{"fooBar" : "baz"}',
   },
   'my/secret/3': {
     ARN: 'arn:aws:mock-secretsmanager:mock-region:mock-account-id:secret:my/secret/3-XXXXXX',

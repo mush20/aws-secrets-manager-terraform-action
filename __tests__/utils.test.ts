@@ -47,5 +47,4 @@ test('getPOSIXString tests', () => {
   expect(getPOSIXString('100/my/test/2')).toEqual('_100_MY_TEST_2');
   expect(getPOSIXString('my/test/3')).toEqual('MY_TEST_3');
   expect(getPOSIXString('my/test/3.foo')).toEqual('MY_TEST_3_FOO');
-  expect(getPOSIXString('/my_test/4')).toEqual('_MY_TEST_4');
 });
