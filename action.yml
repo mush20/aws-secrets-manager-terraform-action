@@ -15,7 +15,7 @@ inputs:
     description: 'List of secret names you want to fetch secret values for'
     required: true
 runs:
-  using: 'node14'
+  using: 'node12'
   main: 'dist/index.js'
 branding:
   icon: lock
