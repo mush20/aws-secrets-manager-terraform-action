@@ -10,7 +10,7 @@ import {
 } from './utils';
 
 // secretNames input string is a new line separated list of secret names. Take distinct secret names.
-const inputSecretNames: string[] = [...new Set(core.getInput(Inputs.SECRETS).split('\n').filter(x => x !== ''))];
+const inputSecretNames: string[] = [...new Set(core.getInput(Inputs.SECRETS).split(',').filter(x => x !== ''))];
 // Check if any secret name contains a wildcard '*'
 const hasWildcard: boolean = inputSecretNames.some(secretName => secretName.includes('*'));
 
